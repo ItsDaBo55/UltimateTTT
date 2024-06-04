@@ -7,14 +7,16 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "*", // Allow any origin
+        origin: "*", // Allow any origin for now
         methods: ["GET", "POST"]
     }
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow any origin for now
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 
 let games = {};
 

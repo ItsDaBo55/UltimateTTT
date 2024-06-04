@@ -7,9 +7,11 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "*", // Allow any origin for now
+        origin: "*", // Adjust as needed
         methods: ["GET", "POST"]
-    }
+    },
+    pingTimeout: 60000, // Increase the ping timeout to 60 seconds
+    pingInterval: 25000 // Adjust the ping interval as needed
 });
 
 app.use(cors({

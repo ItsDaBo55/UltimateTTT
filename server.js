@@ -32,6 +32,7 @@ server.listen(3000, () => {
 });
 
 io.on('connection', (socket) => {
+    console.log('user connected')
     socket.on('newGame', (data) => {
         games[data.gameId] = { host: socket.id, players: [socket.id], gameState: {} };
     });

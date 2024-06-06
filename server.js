@@ -44,6 +44,7 @@ io.on('connection', (socket) => {
             io.to(games[data.gameId].host).emit('playerJoined', { gameId: data.gameId, guestName: data.guestName });
         }
     });
+
     
     socket.on('saveGameState', (data) => {
         if (games[data.gameId]) {

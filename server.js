@@ -45,6 +45,7 @@ io.on('connection', (socket) => {
         }
     });
 
+    
     socket.on('saveGameState', (data) => {
         if (games[data.gameId]) {
             games[data.gameId].gameState = data.gameState;

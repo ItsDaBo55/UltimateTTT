@@ -71,6 +71,10 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('chatMessage', (data) => {
+        io.emit('chatMessage', data);
+    });
+
     socket.on('disconnect', () => {
         for (const gameId in games) {
             const game = games[gameId];
